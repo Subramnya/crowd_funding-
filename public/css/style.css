@@ -1,0 +1,1396 @@
+:root {
+  --ink: #14213d;
+  --text: #223047;
+  --muted: #64748b;
+  --line: #d9e2ef;
+  --paper: #ffffff;
+  --soft: #f7f9fd;
+  --teal: #0f766e;
+  --teal-dark: #115e59;
+  --coral: #ef5b5b;
+  --gold: #f4b942;
+  --blue: #2563eb;
+  --violet: #7c3aed;
+  --shadow: 0 22px 60px rgba(20, 33, 61, 0.14);
+  --soft-shadow: 0 14px 32px rgba(20, 33, 61, 0.1);
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #eef4f7;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
+  background-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Man_standing_in_a_crowd_%28Unsplash%29.jpg?width=1800");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.3;
+  filter: saturate(1.05) contrast(1.04);
+}
+
+body::after {
+  z-index: -1;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(238, 247, 246, 0.72) 44%, rgba(255, 244, 226, 0.74)),
+    linear-gradient(315deg, rgba(239, 91, 91, 0.16), rgba(37, 99, 235, 0.12));
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 16px;
+  color: var(--ink);
+  font-size: 4.25rem;
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 1.75rem;
+  line-height: 1.15;
+}
+
+h3 {
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.btn {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 0 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  box-shadow: 0 14px 24px rgba(15, 118, 110, 0.22);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 18px 34px rgba(37, 99, 235, 0.24);
+}
+
+.btn-secondary {
+  color: var(--ink);
+  background: #ffffff;
+  border-color: #bfd0e4;
+  box-shadow: 0 10px 18px rgba(20, 33, 61, 0.08);
+}
+
+.btn-secondary:hover {
+  border-color: var(--coral);
+}
+
+.btn-ghost {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.46);
+  border-color: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 22px rgba(20, 33, 61, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  background: #ffffff;
+  border-color: rgba(15, 118, 110, 0.34);
+}
+
+.home-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+.hero-panel {
+  min-height: 560px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  align-items: center;
+  gap: 40px;
+  padding: 46px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.68)),
+    linear-gradient(120deg, rgba(244, 185, 66, 0.2), rgba(37, 99, 235, 0.18), rgba(15, 118, 110, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 7px;
+  background: linear-gradient(90deg, var(--coral), var(--gold), var(--teal), var(--blue));
+}
+
+.hero-text {
+  max-width: 650px;
+  margin-bottom: 28px;
+  color: #46556d;
+  font-size: 1.18rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-visual {
+  min-height: 390px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(20, 33, 61, 0.86), rgba(15, 118, 110, 0.48), rgba(239, 91, 91, 0.38)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Man_standing_in_a_crowd_%28Unsplash%29.jpg?width=1200");
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: var(--radius);
+}
+
+.impact-card {
+  width: 280px;
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: var(--radius);
+  box-shadow: 0 22px 38px rgba(2, 8, 23, 0.25);
+}
+
+.impact-card strong {
+  color: var(--ink);
+  font-size: 1.35rem;
+}
+
+.impact-card span:last-child {
+  color: var(--muted);
+}
+
+.impact-card-main {
+  transform: translate(-34px, -16px);
+}
+
+.impact-card-side {
+  position: absolute;
+  right: 24px;
+  bottom: 34px;
+  border-left: 6px solid var(--gold);
+}
+
+.mini-label {
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.impact-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.impact-strip div {
+  min-height: 96px;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+  padding: 20px;
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, rgba(20, 33, 61, 0.92), rgba(15, 118, 110, 0.78)),
+    linear-gradient(90deg, rgba(239, 91, 91, 0.16), rgba(244, 185, 66, 0.16));
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+}
+
+.impact-strip span {
+  color: #f8d981;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.impact-strip strong {
+  font-size: 1.18rem;
+}
+
+.featured-section {
+  padding: 42px 0 8px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.featured-card {
+  min-height: 100%;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.featured-card h3 {
+  margin-bottom: 0;
+  font-size: 1.35rem;
+}
+
+.featured-card p {
+  margin-bottom: 0;
+  color: #3d4b63;
+  line-height: 1.6;
+}
+
+.featured-card .btn {
+  width: fit-content;
+  margin-top: 8px;
+}
+
+.how-section,
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.how-section {
+  padding: 34px 0 0;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+
+.section-heading p,
+.page-intro p,
+.success-panel p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.step-card,
+.form-panel,
+.funding-card,
+.payment-panel,
+.success-panel,
+.empty-panel,
+.message {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.step-card {
+  padding: 22px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(20, 33, 61, 0.14);
+}
+
+.step-number {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--coral);
+  font-weight: 900;
+}
+
+.page-header {
+  width: min(1180px, calc(100% - 32px));
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+.brand-link {
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-actions a {
+  padding: 10px 12px;
+  color: #40506a;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+}
+
+.nav-actions a:hover {
+  background: #ffffff;
+  border-color: var(--line);
+}
+
+.page-shell {
+  padding: 18px 0 56px;
+}
+
+.compact-shell {
+  width: min(900px, calc(100% - 32px));
+}
+
+.split-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.page-intro {
+  min-height: 420px;
+  padding: 32px;
+  background:
+    linear-gradient(135deg, rgba(20, 33, 61, 0.92), rgba(15, 118, 110, 0.74), rgba(239, 91, 91, 0.36)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Man_standing_in_a_crowd_%28Unsplash%29.jpg?width=1000");
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.page-intro h1,
+.page-intro p {
+  color: #ffffff;
+}
+
+.page-intro .eyebrow {
+  color: #f8d981;
+}
+
+.form-panel {
+  padding: 28px;
+}
+
+.funding-form {
+  display: grid;
+  gap: 22px;
+}
+
+.form-fields {
+  display: grid;
+  gap: 16px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  color: #344158;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  border: 1px solid #c9d5e3;
+  border-radius: var(--radius);
+  padding: 13px 14px;
+  color: var(--text);
+  background: #fbfdff;
+  outline: none;
+}
+
+.field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.qr-upload {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 18px;
+  align-items: start;
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.09), rgba(244, 185, 66, 0.15));
+  border: 1px dashed #9db3cc;
+  border-radius: var(--radius);
+}
+
+.qr-preview {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.qr-preview img,
+.payment-qr-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qr-placeholder {
+  max-width: 170px;
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.45;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.status-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.status-text.error {
+  color: #b91c1c;
+}
+
+.wide-heading {
+  max-width: 850px;
+}
+
+.wide-heading h1 {
+  font-size: 3.2rem;
+}
+
+.funding-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.funding-card {
+  width: min(100%, 900px);
+  min-height: 290px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: stretch;
+  padding: 26px;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.funding-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15, 118, 110, 0.1), rgba(239, 91, 91, 0.08));
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.funding-card:hover,
+.funding-card:focus-within {
+  z-index: 2;
+  transform: scale(1.025);
+  border-color: rgba(15, 118, 110, 0.36);
+  box-shadow: 0 28px 70px rgba(20, 33, 61, 0.2);
+}
+
+.funding-card:hover::before,
+.funding-card:focus-within::before {
+  opacity: 1;
+}
+
+.funding-content,
+.funding-action {
+  position: relative;
+  z-index: 1;
+}
+
+.funding-content {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.funding-content h2 {
+  margin-top: 18px;
+  font-size: 2.25rem;
+}
+
+.funding-description {
+  color: #3d4b63;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.funding-progress,
+.gateway-progress {
+  display: grid;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.gateway-progress {
+  margin: 0 0 22px;
+  padding: 18px;
+  background: #f7fbff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.progress-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  color: #48576f;
+  font-size: 0.92rem;
+}
+
+.progress-summary strong {
+  color: var(--ink);
+}
+
+.progress-bottom {
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.progress-track {
+  height: 16px;
+  overflow: hidden;
+  background: #dfe8f3;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 3px rgba(20, 33, 61, 0.12);
+}
+
+.progress-fill {
+  min-width: 8px;
+  height: 100%;
+  display: block;
+  background: linear-gradient(90deg, var(--teal), var(--gold), var(--coral));
+  border-radius: inherit;
+}
+
+.meta-pill {
+  width: fit-content;
+  display: inline-flex;
+  padding: 8px 10px;
+  background: #e8f3f1;
+  border-radius: var(--radius);
+  color: var(--teal-dark);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.funding-action {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.fund-btn {
+  width: fit-content;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.18s ease;
+}
+
+.funding-card:hover .fund-btn,
+.funding-card:focus-within .fund-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.payment-panel {
+  padding: 30px;
+}
+
+.payment-form {
+  display: grid;
+  gap: 14px;
+}
+
+.payment-option {
+  display: grid;
+  grid-template-columns: auto 58px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 16px;
+  background: #fbfdff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.payment-option:hover,
+.payment-option:has(input:checked) {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: var(--teal);
+}
+
+.gateway-notice {
+  margin: -8px 0 18px;
+  padding: 14px 16px;
+  color: #8a1f1f;
+  background: rgba(255, 238, 238, 0.94);
+  border: 1px solid rgba(239, 91, 91, 0.36);
+  border-radius: var(--radius);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.payment-option input {
+  width: 18px;
+  height: 18px;
+}
+
+.payment-option strong,
+.payment-option small {
+  display: block;
+}
+
+.payment-option strong {
+  color: var(--ink);
+}
+
+.payment-option small {
+  margin-top: 4px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.payment-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 900;
+  border-radius: var(--radius);
+}
+
+.logo-stack {
+  width: 58px;
+  min-height: 58px;
+  display: grid;
+  gap: 5px;
+  place-items: center;
+  padding: 7px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.logo-stack img {
+  max-width: 100%;
+  max-height: 22px;
+  object-fit: contain;
+}
+
+.single-logo img {
+  max-height: 32px;
+}
+
+.payment-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+.icon-upi {
+  background: linear-gradient(135deg, #16a34a, #2563eb);
+}
+
+.icon-bank {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.icon-card {
+  background: linear-gradient(135deg, #ef5b5b, #f4b942);
+}
+
+.icon-wallet {
+  background: linear-gradient(135deg, #0f766e, #f4b942);
+}
+
+.pay-drawer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 6px;
+  padding: 18px;
+  background: #eef7f6;
+  border: 1px solid #b7d8d4;
+  border-radius: var(--radius);
+}
+
+.pay-drawer > div {
+  display: grid;
+  gap: 14px;
+}
+
+.pay-drawer p {
+  margin: 0;
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.amount-field {
+  display: grid;
+  gap: 8px;
+  color: #344158;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.amount-input-wrap {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  background: #ffffff;
+  border: 1px solid #c9d5e3;
+  border-radius: var(--radius);
+}
+
+.amount-input-wrap > span {
+  color: var(--teal-dark);
+  font-size: 1.15rem;
+}
+
+.amount-input-wrap input {
+  width: min(240px, 100%);
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font-weight: 800;
+}
+
+.qr-payment-panel {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.payment-qr-box {
+  width: min(360px, 100%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  margin: 6px 0 24px;
+  padding: 14px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 8px #f3f7fb;
+}
+
+.thank-you-message {
+  max-width: 700px;
+  margin-bottom: 18px;
+  padding: 18px;
+  background: #eef7f6;
+  border: 1px solid #b7d8d4;
+  border-radius: var(--radius);
+}
+
+.thank-you-message h2 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+.thank-you-message p {
+  margin-bottom: 0;
+  color: #344158;
+  line-height: 1.65;
+}
+
+.center-page {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.success-panel {
+  width: min(680px, 100%);
+  padding: 42px;
+  text-align: center;
+}
+
+.success-panel h1 {
+  font-size: 3rem;
+}
+
+.success-panel .hero-actions {
+  justify-content: center;
+}
+
+.creator-code-panel {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin: 24px auto;
+  padding: 20px;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(244, 185, 66, 0.2)),
+    #ffffff;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: var(--radius);
+}
+
+.creator-code-panel span {
+  color: var(--teal-dark);
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.creator-code-panel strong {
+  color: var(--ink);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.creator-code-panel p {
+  max-width: 440px;
+  margin: 0;
+}
+
+.empty-panel,
+.message {
+  width: min(900px, 100%);
+  padding: 26px;
+}
+
+.admin-shell {
+  display: grid;
+  gap: 28px;
+}
+
+.admin-hero {
+  min-height: 300px;
+  display: grid;
+  align-content: end;
+  padding: 34px;
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, rgba(20, 33, 61, 0.9), rgba(37, 99, 235, 0.54), rgba(239, 91, 91, 0.34)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Man_standing_in_a_crowd_%28Unsplash%29.jpg?width=1400");
+  background-position: center 42%;
+  background-size: cover;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.admin-hero h1,
+.admin-hero p {
+  color: #ffffff;
+}
+
+.admin-hero .eyebrow {
+  color: #f8d981;
+}
+
+.admin-hero p {
+  max-width: 720px;
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admin-access-card {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.admin-access-form {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.admin-access-form label {
+  display: grid;
+  gap: 8px;
+  color: #344158;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.admin-access-form input {
+  width: 100%;
+  min-height: 58px;
+  border: 1px solid #c9d5e3;
+  border-radius: var(--radius);
+  padding: 0 16px;
+  color: var(--ink);
+  background: #fbfdff;
+  font-size: 1.8rem;
+  font-weight: 900;
+  outline: none;
+}
+
+.admin-access-form input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-access-card .status-text {
+  margin-top: 12px;
+}
+
+.admin-dashboard {
+  display: grid;
+  gap: 28px;
+}
+
+.admin-stat-card,
+.admin-funding-card,
+.ledger-panel {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.admin-stat-card {
+  min-height: 122px;
+  display: grid;
+  align-content: space-between;
+  gap: 12px;
+  padding: 18px;
+}
+
+.admin-stat-card span,
+.admin-metrics span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.admin-stat-card strong {
+  color: var(--ink);
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.accent-stat {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+}
+
+.accent-stat span,
+.accent-stat strong {
+  color: #ffffff;
+}
+
+.admin-section {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-list {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-funding-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+  gap: 22px;
+  padding: 22px;
+}
+
+.admin-funding-main h3 {
+  margin: 14px 0 10px;
+  font-size: 1.55rem;
+}
+
+.admin-funding-main p {
+  color: #3d4b63;
+  line-height: 1.65;
+}
+
+.donor-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.donor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  color: var(--ink);
+  background: rgba(232, 243, 241, 0.96);
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+}
+
+.donor-pill strong {
+  color: var(--teal-dark);
+}
+
+.code-pill {
+  margin-left: 8px;
+  background: #fff7df;
+  color: #8a5a00;
+}
+
+.admin-muted {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.admin-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-metrics div {
+  min-height: 88px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: rgba(247, 251, 255, 0.88);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.admin-metrics strong {
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.ledger-panel {
+  overflow: hidden;
+}
+
+.ledger-table {
+  display: grid;
+}
+
+.ledger-row {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 0.8fr 0.7fr 0.85fr;
+  gap: 14px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--line);
+}
+
+.ledger-row:first-child {
+  border-top: 0;
+}
+
+.ledger-head {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--ink), var(--teal-dark));
+  font-weight: 900;
+}
+
+.ledger-row span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.site-footer {
+  width: min(1180px, calc(100% - 32px));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  color: #40506a;
+  font-size: 0.92rem;
+}
+
+.site-footer span:first-child {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+@media (max-width: 920px) {
+  h1 {
+    font-size: 3.25rem;
+  }
+
+  .hero-panel,
+  .split-panel,
+  .steps-grid,
+  .impact-strip,
+  .featured-grid,
+  .admin-stats,
+  .admin-funding-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    min-height: auto;
+  }
+
+  .page-intro {
+    min-height: auto;
+  }
+
+  .funding-card {
+    grid-template-columns: 1fr;
+  }
+
+  .funding-action {
+    justify-content: flex-start;
+  }
+
+  .fund-btn {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ledger-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  h1,
+  .wide-heading h1,
+  .success-panel h1 {
+    font-size: 2.35rem;
+  }
+
+  .home-shell,
+  .how-section,
+  .page-shell,
+  .page-header,
+  .site-footer,
+  .compact-shell {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .hero-panel,
+  .form-panel,
+  .payment-panel,
+  .success-panel,
+  .page-intro,
+  .funding-card,
+  .admin-hero,
+  .admin-funding-card {
+    padding: 20px;
+  }
+
+  .hero-visual {
+    min-height: 300px;
+  }
+
+  .impact-card {
+    width: min(260px, 88%);
+  }
+
+  .impact-card-main {
+    transform: translate(0, -26px);
+  }
+
+  .impact-card-side {
+    right: 12px;
+    bottom: 18px;
+  }
+
+  .page-header,
+  .form-actions,
+  .pay-drawer,
+  .admin-access-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-access-form {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-actions,
+  .hero-actions {
+    width: 100%;
+  }
+
+  .nav-actions a,
+  .btn {
+    width: 100%;
+  }
+
+  .field-row,
+  .qr-upload {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-option {
+    grid-template-columns: auto 48px minmax(0, 1fr);
+    padding: 14px;
+  }
+
+  .payment-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .admin-metrics {
+    grid-template-columns: 1fr;
+  }
+}

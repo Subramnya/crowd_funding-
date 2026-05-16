@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrowdFund Hub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="home-page">
+  <main class="home-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">Trusted community support</p>
+        <h1>CrowdFund Hub</h1>
+        <p class="hero-text">
+          Create urgent funding requests, explain the need clearly, and let visitors choose the causes they want to support.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="fundings.html">See Existing Fundings</a>
+          <a class="btn btn-secondary" href="create.html">Create New Funding</a>
+          <a class="btn btn-ghost" href="admin.html">Admin Portal</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="impact-card impact-card-main">
+          <span class="mini-label">Active request</span>
+          <strong>Medical Support</strong>
+          <span>Ends in 3 days</span>
+        </div>
+        <div class="impact-card impact-card-side">
+          <span class="mini-label">Donor choice</span>
+          <strong>UPI / PhonePe only</strong>
+          <span>Direct QR flow</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-strip" aria-label="Platform highlights">
+      <div>
+        <span>UPI first</span>
+        <strong>Fast QR donations</strong>
+      </div>
+      <div>
+        <span>Admin ready</span>
+        <strong>Funder names tracked</strong>
+      </div>
+      <div>
+        <span>Clean storage</span>
+        <strong>QR saved as files</strong>
+      </div>
+    </section>
+
+    <section class="featured-section" aria-labelledby="featuredTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Featured campaigns</p>
+        <h2 id="featuredTitle">Active causes looking for support</h2>
+        <p>Track the current funding progress and choose a campaign to support directly.</p>
+      </div>
+      <div id="featuredCampaigns" class="featured-grid" aria-live="polite">
+        <div class="message">Loading featured campaigns...</div>
+      </div>
+    </section>
+
+    <section class="how-section" aria-labelledby="howTitle">
+      <div class="section-heading">
+        <p class="eyebrow">How it works</p>
+        <h2 id="howTitle">Simple steps from request to donation</h2>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-number">01</span>
+          <h3>Create a funding</h3>
+          <p>Add the title, reason, target amount, ending time, and payment QR code.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">02</span>
+          <h3>People review it</h3>
+          <p>Visitors open existing fundings and read the description before choosing where to donate.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">03</span>
+          <h3>They pay through QR</h3>
+          <p>The UPI option records the donor name and amount, then displays the uploaded QR for that funding.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span>CrowdFund Hub</span>
+    <span>Built with Node.js, Express, and SQLite.</span>
+  </footer>
+  <script src="/js/shared.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

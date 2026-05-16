@@ -1,0 +1,14 @@
+node_modules/
+npm-debug.log*
+
+.env
+
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+uploads/*
+!uploads/qr/
+uploads/qr/*
+!uploads/qr/.gitkeep

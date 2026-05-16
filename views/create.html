@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Funding | CrowdFund Hub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <a class="brand-link" href="index.html">CrowdFund Hub</a>
+    <nav class="nav-actions" aria-label="Page navigation">
+      <a href="index.html">Home</a>
+      <a href="fundings.html">Existing Fundings</a>
+      <a href="admin.html">Admin Portal</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="split-panel">
+      <div class="page-intro">
+        <p class="eyebrow">Create request</p>
+        <h1>Create New Funding</h1>
+        <p>
+          Add the main details donors need to understand the urgency. The target amount is stored as a reference, and the QR code is shown only when a donor chooses to pay.
+        </p>
+      </div>
+
+      <section class="form-panel">
+        <form id="fundingForm" class="funding-form" enctype="multipart/form-data">
+          <div class="form-fields">
+            <div class="field">
+              <label for="title">Funding title</label>
+              <input id="title" name="title" type="text" placeholder="Example: Emergency school fees" required />
+            </div>
+
+            <div class="field">
+              <label for="description">Why do you need this funding?</label>
+              <textarea id="description" name="description" placeholder="Explain the situation, urgency, and how donations will help." required></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="goalAmount">Expected amount to collect</label>
+                <input id="goalAmount" name="goalAmount" type="number" min="1" step="1" placeholder="Example: 25000" required />
+              </div>
+
+              <div class="field">
+                <label for="durationDays">Funding ends after</label>
+                <select id="durationDays" name="durationDays" required>
+                  <option value="1">1 day</option>
+                  <option value="2">2 days</option>
+                  <option value="3" selected>3 days</option>
+                  <option value="5">5 days</option>
+                  <option value="7">7 days</option>
+                  <option value="10">10 days</option>
+                  <option value="15">15 days</option>
+                  <option value="30">30 days</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="qr-upload">
+            <div class="field">
+              <label for="qrCode">Upload payment QR code</label>
+              <input id="qrCode" name="qrCode" type="file" accept="image/png,image/jpeg" required />
+              <small class="field-help">PNG, JPG, or JPEG only. Maximum size: 2 MB.</small>
+            </div>
+            <div id="qrPreview" class="qr-preview">
+              <p class="qr-placeholder">Upload a clear UPI or payment QR image.</p>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <p id="formStatus" class="status-text"></p>
+            <button class="btn btn-primary" type="submit">Create Funding</button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>CrowdFund Hub</span>
+    <span>Create clear requests and track support responsibly.</span>
+  </footer>
+  <script src="/js/shared.js"></script>
+  <script src="/js/createFunding.js"></script>
+</body>
+</html>

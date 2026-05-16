@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Gateway | CrowdFund Hub</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <a class="brand-link" href="index.html">CrowdFund Hub</a>
+    <nav class="nav-actions" aria-label="Page navigation">
+      <a href="index.html">Home</a>
+      <a href="fundings.html">Existing Fundings</a>
+      <a href="admin.html">Admin Portal</a>
+    </nav>
+  </header>
+
+  <main class="page-shell compact-shell">
+    <section class="payment-panel" id="gatewayPanel">
+      <div class="section-heading">
+        <p class="eyebrow">Payment gateway</p>
+        <h1 id="paymentTitle">Choose payment method</h1>
+        <p id="paymentDescription">Select a payment option to continue.</p>
+      </div>
+      <div id="paymentNotice" class="gateway-notice" role="alert" hidden></div>
+
+      <form id="paymentForm" class="payment-form">
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="UPI" />
+          <span class="logo-stack" aria-hidden="true">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/UPI-Logo-vector.svg" alt="" />
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/PhonePe_Logo.svg" alt="" />
+          </span>
+          <span>
+            <strong>UPI / PhonePe</strong>
+            <small>Pay using UPI apps like PhonePe, Google Pay, or Paytm.</small>
+          </span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="Google Pay" />
+          <span class="logo-stack single-logo" aria-hidden="true">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Google_Pay_Logo.svg" alt="" />
+          </span>
+          <span>
+            <strong>Google Pay</strong>
+            <small>Continue with Google Pay or scan the payment QR.</small>
+          </span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="Paytm" />
+          <span class="logo-stack single-logo" aria-hidden="true">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Paytm_Logo.png" alt="" />
+          </span>
+          <span>
+            <strong>Paytm</strong>
+            <small>Use Paytm wallet or UPI QR payment.</small>
+          </span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="Credit / Debit Card" />
+          <span class="payment-icon icon-card" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M4 6h16c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2Zm0 3v2h16V9H4Zm2 6h5v-2H6v2Z" />
+            </svg>
+          </span>
+          <span>
+            <strong>Credit / Debit Card</strong>
+            <small>Use a card-style checkout option.</small>
+          </span>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="Net Banking" />
+          <span class="payment-icon icon-bank" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M3 10h18L12 4 3 10Zm2 2v7h3v-7H5Zm5 0v7h4v-7h-4Zm6 0v7h3v-7h-3ZM4 21h16v-2H4v2Z" />
+            </svg>
+          </span>
+          <span>
+            <strong>Net Banking</strong>
+            <small>Continue through a bank account payment flow.</small>
+          </span>
+        </label>
+
+        <div id="payDrawer" class="pay-drawer" hidden>
+          <div>
+            <p id="selectedMethodText"></p>
+            <label class="amount-field" for="donorName">
+              <span>Your name</span>
+              <span class="amount-input-wrap">
+                <input id="donorName" name="donorName" type="text" maxlength="80" placeholder="Enter your name" />
+              </span>
+            </label>
+            <label class="amount-field" for="paymentAmount">
+              <span>Contribution amount</span>
+              <span class="amount-input-wrap">
+                <span>Rs.</span>
+                <input id="paymentAmount" name="paymentAmount" type="number" min="1" step="1" placeholder="10000" />
+              </span>
+            </label>
+          </div>
+          <button class="btn btn-primary" type="submit">Pay Now</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="payment-panel qr-payment-panel" id="qrPanel" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">Scan and pay</p>
+        <h1 id="qrTitle">Payment QR</h1>
+        <p>Scan this QR code with your payment app to donate to this funding.</p>
+      </div>
+
+      <div id="thankYouMessage" class="thank-you-message"></div>
+      <div id="paymentQrBox" class="payment-qr-box"></div>
+      <a class="btn btn-primary" href="index.html">Go Home</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>CrowdFund Hub</span>
+    <span>UPI donations are recorded with donor names and amounts.</span>
+  </footer>
+  <script src="/js/shared.js"></script>
+  <script src="/js/payment.js"></script>
+</body>
+</html>
